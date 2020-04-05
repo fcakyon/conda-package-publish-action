@@ -18,13 +18,28 @@ check_if_meta_yaml_file_exists() {
 
 build_package(){
     conda build -c conda-forge --output-folder . .
-    conda convert -p osx-64 linux-64/*.tar.bz2
+    if [[ $INPUT_PLATFORMS == *"osx"* ]]; then
+    conda convert -p osx-64/*.tar.bz2
+    fi
+    if [[ $INPUT_PLATFORMS == *"linux"* ]]; then
+    conda convert -p linux-64/*.tar.bz2
+    fi
+    if [[ $INPUT_PLATFORMS == *"win"* ]]; then
+    conda convert -p win-64/*.tar.bz2
+    fi
 }
 
 upload_package(){
     export ANACONDA_API_TOKEN=$INPUT_ANACONDATOKEN
-    anaconda upload --label main linux-64/*.tar.bz2
+    if [[ $INPUT_PLATFORMS == *"osx"* ]]; then
     anaconda upload --label main osx-64/*.tar.bz2
+    fi
+    if [[ $INPUT_PLATFORMS == *"linux"* ]]; then
+    anaconda upload --label main linux-64/*.tar.bz2
+    fi
+    if [[ $INPUT_PLATFORMS == *"win"* ]]; then
+    anaconda upload --label main win-64/*.tar.bz2
+    fi
 }
 
 go_to_build_dir

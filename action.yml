@@ -1,15 +1,18 @@
 name: 'Publish Conda package to Anaconda.org'
 description: 'Build and Publish conda package to Anaconda'
-author: 'Andrew Prokhorenkov, modified by Maxime Borry'
+author: 'Andrew Prokhorenkov, modified by Maxime Borry and Fatih C Akyon'
 branding:
   icon: 'package'  
   color: 'purple'
 inputs: 
-  subDir:
+  subdir:
     description: 'Sub-directory with conda recipe'
     default: '.'
-  AnacondaToken:
-    description: 'Anaconda access Token'
+  anacondatoken:
+    description: 'Anaconda access token'
+  platforms:
+    description: 'Platforms to publish [osx/linux/win]'
+    default: 'osx linux'
 runs:
   using: 'docker'
   image: 'Dockerfile'
