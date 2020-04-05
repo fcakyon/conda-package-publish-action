@@ -1,4 +1,4 @@
-name: 'Publish Conda package to Anaconda.org'
+name: 'Publish Conda'
 description: 'Build and Publish conda package to Anaconda'
 author: 'Andrew Prokhorenkov, modified by Maxime Borry and Fatih C Akyon'
 branding:
