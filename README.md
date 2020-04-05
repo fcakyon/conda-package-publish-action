@@ -15,9 +15,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@master
     - name: publish-to-conda
-      uses: maxibor/conda-package-publish-action@v1.1
+      uses: fcakyon/conda-package-publish-action@master
       with:
         subdir: 'conda'
         anacondatoken: ${{ secrets.ANACONDA_TOKEN }}

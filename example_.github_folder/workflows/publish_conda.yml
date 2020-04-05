@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: publish-to-conda
-      uses: maxibor/conda-package-publish-action@master
+      uses: fcakyon/conda-package-publish-action@master
       with:
         subdir: 'conda'
         anacondatoken: ${{ secrets.ANACONDA_TOKEN }}
